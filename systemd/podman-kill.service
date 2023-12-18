@@ -1,0 +1,12 @@
+[Unit]
+Description=Stops all Podman containers
+DefaultDependencies=no
+Before=shutdown.target
+
+[Service]
+Type=exec
+ExecStart=/usr/bin/podman-kill
+TimeoutStartSec=0
+
+[Install]
+WantedBy=shutdown.target
