@@ -1,0 +1,2 @@
+#!/bin/bash
+distrobox create --image ubuntu:22.04 --name devspace --home /home/$USER/devspace
