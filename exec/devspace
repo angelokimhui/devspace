@@ -1,0 +1,5 @@
+#!/bin/bash
+tmux new-session -d -s devspace -n devspace
+tmux send-keys -t devspace:devspace "distrobox enter devspace" Enter
+tmux send-keys -t devspace:devspace "clear" Enter
+tmux attach -t devspace:devspace
