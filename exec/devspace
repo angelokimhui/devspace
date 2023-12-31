@@ -1,5 +1,9 @@
 #!/bin/bash
-tmux new-session -d -s devspace -n devspace
-tmux send-keys -t devspace:devspace "distrobox enter devspace" Enter
-tmux send-keys -t devspace:devspace "clear" Enter
-tmux attach -t devspace:devspace
+
+isRunning=$(tmux ls | grep -o devspace)
+clear
+if [[ "$isRunning" == "devspace" ]]; then
+	tmux attach -t devspace:devspace
+else
+	tmux new-session -s devspace -n devspace 'distrobox enter devspace'
+fi
