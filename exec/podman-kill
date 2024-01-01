@@ -6,10 +6,13 @@ containers=$(podman ps | grep -v 'CONTAINER ID' | awk '{print $1}')
 length=${#containers}
 echo $length
 
+tmux kill-session -t devspace
+
 while [ "$length" -gt "0" ]
 do
         for i in $containers
         do
+		tmux kill-session -t devspace
                 podman stop $i > /dev/null
         done
         containers=$(podman ps | grep -v 'CONTAINER ID' | awk '{print $1}')
