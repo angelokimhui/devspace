@@ -1,0 +1,3 @@
+#!/bin/bash
+mkdir -p /home/$USER/Containers/home
+distrobox create --image archlinux --name home --home /home/$USER/Containers/home --init-hooks '"$(uname -n)" > /etc/hostname'
