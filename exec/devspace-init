@@ -1,2 +1,3 @@
 #!/bin/bash
-distrobox create --image ubuntu:22.04 --name devspace --home /home/$USER/devspace
+mkdir -p /home/$USER/Containers/devspace
+distrobox create --image ubuntu:22.04 --name devspace --home /home/$USER/Containers/devspace
