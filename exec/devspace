@@ -5,5 +5,5 @@ clear
 if [[ "$isRunning" == "devspace" ]]; then
 	tmux attach -t devspace:devspace
 else
-	tmux new-session -s devspace -n devspace 'distrobox enter devspace'
+	tmux new-session -s devspace -n devspace 'distrobox enter devspace -nw'
 fi
