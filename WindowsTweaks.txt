@@ -1,0 +1,8 @@
+# Enable administrator account in Windows then hide it, don't forget to change password (For private run of ryzenadj)
+net user administrator /active:yes
+net user administrator *passwd*
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\Userlist" /v administrator /t REG_DWORD /d 0 /f
+
+# Disable Microsoft Mitigations
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /v FeatureSettingsOverride /t REG_DWORD /d 3 /f
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /v FeatureSettingsOverrideMask /t REG_DWORD /d 3 /f
